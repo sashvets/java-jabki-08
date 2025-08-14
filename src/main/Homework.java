@@ -119,13 +119,7 @@ public class Homework {
             }};
             System.out.print("Список до удаления кратных 2: ");
             printListViaSeparator(intDigits);
-            for (int i = 0; i < intDigits.size(); i++) {
-                if (intDigits.get(i) % 2 == 0) {
-                    int divTwo = intDigits.get(i);
-                    intDigits.remove(i);
-                    i--;
-                }
-            }
+            intDigits.removeIf(i -> i % 2 == 0);
             System.out.print("Список после удаления кратных 2: ");
             printListViaSeparator(intDigits);
             System.out.println();
