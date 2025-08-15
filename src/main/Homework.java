@@ -8,37 +8,19 @@ public class Homework {
         System.out.println("Самостоятельная работа №8.\nКоллекции в Java - List.\n");
         {
             // 1) Вывести список. Создайте список из 5 целых чисел. Выведите его элементы через пробел.
-            List<Integer> intDigits = new ArrayList<>() {{
-                add(7);
-                add(2);
-                add(7);
-                add(42);
-                add(6);
-            }};
+            List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6));
             System.out.println("Вывод списка числе через пробел:");
             printListViaSeparator(intDigits);
             System.out.println();
         }
         {
-            List<Integer> intDigits = new ArrayList<>() {{
-                add(7);
-                add(2);
-                add(7);
-                add(42);
-                add(6);
-            }};
             // 2) Доступ по индексу. Выведите третий элемент списка.
+            List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6));
             System.out.printf("Третий элемент из списка %s равен: %s\n\n", intDigits, intDigits.get(2));
         }
         {
             // 3) Удаление элемента. Удалите второй элемент списка и выведите оставшиеся.
-            List<Integer> intDigits = new ArrayList<>() {{
-                add(7);
-                add(2);
-                add(7);
-                add(42);
-                add(6);
-            }};
+            List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6));
             System.out.printf("Результат удаления 2 элемента списка %s:\n", intDigits);
             intDigits.remove(1);
             printListViaSeparator(intDigits);
@@ -46,13 +28,7 @@ public class Homework {
         }
         {
             // 4) Сумма элементов. Найдите сумму всех чисел в списке.
-            List<Integer> intDigits = new ArrayList<>() {{
-                add(7);
-                add(2);
-                add(7);
-                add(42);
-                add(6);
-            }};
+            List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6));
             int sum = 0;
             for (Integer i : intDigits) {
                 sum += i;
@@ -61,13 +37,7 @@ public class Homework {
         }
         {
             // 5) Подсчёт количества. Подсчитайте, сколько раз в списке встречается число 7.
-            List<Integer> intDigits = new ArrayList<>() {{
-                add(7);
-                add(2);
-                add(7);
-                add(42);
-                add(6);
-            }};
+            List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6));
             int countSeven = 0;
             for (Integer i : intDigits) {
                 if (i == 7) {
@@ -78,30 +48,17 @@ public class Homework {
         }
         {
             // 6) Поиск элемента. Проверьте, содержится ли число 42 в списке.
-            List<Integer> intDigits = new ArrayList<>() {{
-                add(7);
-                add(2);
-                add(7);
-                add(42);
-                add(6);
-            }};
+            List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6));
             System.out.printf("Число 42 %s в списке: %s\n\n", intDigits.contains(42) ? "содержится" : "не содержится", intDigits);
         }
         {
             // 7) Минимум и максимум. Найдите и выведите минимальное и максимальное число в списке.
-            List<Integer> intDigits = new ArrayList<>() {{
-                add(7);
-                add(2);
-                add(7);
-                add(42);
-                add(6);
-            }};
-            int minInt = intDigits.get(0);
-            int maxInt = intDigits.get(0);
+            List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6));
+            int minInt = intDigits.getFirst();
+            int maxInt = intDigits.getFirst();
             for (int i = 1; i < intDigits.size(); i++) {
                 if (intDigits.get(i) < minInt) {
                     minInt = intDigits.get(i);
-
                 } else if (intDigits.get(i) > maxInt) {
                     maxInt = intDigits.get(i);
                 }
@@ -110,13 +67,7 @@ public class Homework {
         }
         {
             // 8) Удалить все чётные числа. Удалите из списка все числа, делящиеся на 2.
-            List<Integer> intDigits = new ArrayList<>() {{
-                add(7);
-                add(2);
-                add(7);
-                add(42);
-                add(6);
-            }};
+            List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6));
             System.out.print("Список до удаления кратных 2: ");
             printListViaSeparator(intDigits);
             intDigits.removeIf(i -> i % 2 == 0);
@@ -137,14 +88,7 @@ public class Homework {
         }
         {
             // 10) Количество элементов > N. Найдите количество элементов, больше чем число N.
-            List<Integer> intDigits = new ArrayList<>() {{
-                add(7);
-                add(2);
-                add(7);
-                add(42);
-                add(6);
-                add(5);
-            }};
+            List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6, 5));
             final int numN = 4;
             int countElementsMoreN = 0;
             for (Integer i : intDigits) {
@@ -157,15 +101,7 @@ public class Homework {
         }
         {
             // 11) Создание списка строк и фильтрация. Создайте список строк. Выведите строки, длина которых больше 5.
-            List<String> stringList = new ArrayList<>() {{
-                add("HelloWorld");
-                add("ByeBye");
-                add("JavaIsTheBest");
-                add("C");
-                add("C++");
-                add("Python");
-                add("JavaScript Language");
-            }};
+            List<String> stringList = new ArrayList<>(List.of("HelloWorld", "ByeBye", "JavaIsTheBest", "C", "C++", "Python"));
             boolean ifFirst = true;
             System.out.println("Вывод строк, длина которых больше 5:");
             for (String str : stringList) {
@@ -182,22 +118,8 @@ public class Homework {
         }
         {
             // 12) Инвертировать список. Напишите метод, который возвращает список в обратном порядке.
-            List<String> stringList = new ArrayList<>() {{
-                add("HelloWorld");
-                add("ByeBye");
-                add("JavaIsTheBest");
-                add("C");
-                add("C++");
-                add("Python");
-                add("JavaScript Language");
-            }};
-            List<Integer> intDigits = new ArrayList<>() {{
-                add(7);
-                add(2);
-                add(7);
-                add(42);
-                add(6);
-            }};
+            List<String> stringList = new ArrayList<>(List.of("HelloWorld", "ByeBye", "JavaIsTheBest", "C", "C++"));
+            List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6));
             System.out.println("Инвертировать список:");
             printListViaSeparator(stringList, ", ");
             printListViaSeparator(reverseList(stringList), ", ");
@@ -207,22 +129,9 @@ public class Homework {
         }
         {
             // 13) Объединение двух списков без дубликатов. Даны два списка. Объедините их в один, не добавляя повторы.
-            List<String> listFirst = new ArrayList<>() {{
-                add("HelloWorld");
-                add("ByeBye");
-                add("JavaIsTheBest");
-                add("C");
-                add("C++");
-                add("Python");
-                add("JavaScript Language");
-            }};
-            List<String> listSecond = new ArrayList<>() {{
-                add("HelloWorld");
-                add("ByeBye");
-                add("Basic");
-                add("C#");
-                add("Cobol");
-            }};
+            List<String> listFirst = new ArrayList<>(List.of("HelloWorld", "ByeBye", "C++", "Python", "JavaScript Language"));
+            List<String> listSecond = new ArrayList<>(List.of("HelloWorld", "ByeBye", "Basic", "C#", "Cobol"));
+
             List<String> listResult = new ArrayList<>();
             for (String str : listFirst) {
                 if (!listResult.contains(str)) {
@@ -242,31 +151,25 @@ public class Homework {
         }
         {
             // 14) Сумма только нечётных чисел. Считайте List<Integer> и посчитайте сумму только нечётных чисел.
-            List<Integer> intDigits = new ArrayList<>() {{
-                add(7);
-                add(2);
-                add(7);
-                add(4);
-                add(6);
-                add(-7);
-            }};
+            List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6, -7));
             Integer sumOdd = 0;
             for (int num : intDigits) {
                 if (num % 2 != 0) {
                     sumOdd += num;
                 }
             }
-            System.out.printf("Сумма нечетных элементов списка %s равна: %s\n\n", intDigits, sumOdd);
+            System.out.
+
+                    printf("Сумма нечетных элементов списка %s равна: %s\n\n", intDigits, sumOdd);
         }
         {
             // 15) Фильтр по первой букве. Дан список строк. Верните новый список, содержащий только строки, начинающиеся с буквы "А"
-            List<String> listFirst = new ArrayList<>() {{
-                add("Арарат");
-                add("Арбуз");
-                add("Архангельск");
-                add("Колумбия");
-                add("Австралия");
-            }};
+            List<String> listFirst = new ArrayList<>();
+            listFirst.add("Арарат");
+            listFirst.add("Арбуз");
+            listFirst.add("Архангельск");
+            listFirst.add("Колумбия");
+            listFirst.add("Австралия");
             System.out.println("Список элементов начинающихся с буквы \"А\":");
             printListViaSeparator(getListByFirstSymbol(listFirst, 'А'), ", ");
         }
