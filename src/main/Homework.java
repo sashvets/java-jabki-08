@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Homework {
     public static void main(String[] args) {
@@ -86,10 +87,10 @@ public class Homework {
             }
             System.out.print("Создание списка из массива: ");
             printListViaSeparator(intDigits);
-            System.out.println();
-            List<Integer> numbers = Arrays.stream(arr).boxed().toList();
-            System.out.print("Вариант через stream:");
+            List<Integer> numbers = Arrays.stream(arr).boxed().collect(Collectors.toList());
+            System.out.print("Вариант через stream: ");
             printListViaSeparator(numbers);
+            System.out.println();
         }
         {
             // 10) Количество элементов > N. Найдите количество элементов, больше чем число N.
