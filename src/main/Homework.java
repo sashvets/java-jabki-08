@@ -1,6 +1,8 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class Homework {
@@ -29,7 +31,7 @@ public class Homework {
         {
             // 4) Сумма элементов. Найдите сумму всех чисел в списке.
             List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6));
-            int sum = 0;
+            long sum = 0;
             for (Integer i : intDigits) {
                 sum += i;
             }
@@ -85,6 +87,9 @@ public class Homework {
             System.out.print("Создание списка из массива: ");
             printListViaSeparator(intDigits);
             System.out.println();
+            List<Integer> numbers = Arrays.stream(arr).boxed().toList();
+            System.out.print("Вариант через stream:");
+            printListViaSeparator(numbers);
         }
         {
             // 10) Количество элементов > N. Найдите количество элементов, больше чем число N.
@@ -102,6 +107,7 @@ public class Homework {
         {
             // 11) Создание списка строк и фильтрация. Создайте список строк. Выведите строки, длина которых больше 5.
             List<String> stringList = new ArrayList<>(List.of("HelloWorld", "ByeBye", "JavaIsTheBest", "C", "C++", "Python"));
+
             boolean ifFirst = true;
             System.out.println("Вывод строк, длина которых больше 5:");
             for (String str : stringList) {
@@ -114,7 +120,18 @@ public class Homework {
                     ifFirst = false;
                 }
             }
-            System.out.print("\n\n");
+            System.out.println();
+            System.out.println("Фильтрация через steam:");
+            printListViaSeparator(stringList.stream().filter(str -> str.length() > 5).toList(), ", ");
+            List<String> filteredList = new ArrayList<>();
+            System.out.println("Фильтрация через копированием во второй List:");
+            for (String str : stringList) {
+                if (str.length() > 5) {
+                    filteredList.add(str);
+                }
+            }
+            printListViaSeparator(filteredList, ", ");
+            System.out.println();
         }
         {
             // 12) Инвертировать список. Напишите метод, который возвращает список в обратном порядке.
@@ -131,7 +148,6 @@ public class Homework {
             // 13) Объединение двух списков без дубликатов. Даны два списка. Объедините их в один, не добавляя повторы.
             List<String> listFirst = new ArrayList<>(List.of("HelloWorld", "ByeBye", "C++", "Python", "JavaScript Language"));
             List<String> listSecond = new ArrayList<>(List.of("HelloWorld", "ByeBye", "Basic", "C#", "Cobol"));
-
             List<String> listResult = new ArrayList<>();
             for (String str : listFirst) {
                 if (!listResult.contains(str)) {
@@ -146,21 +162,25 @@ public class Homework {
             System.out.println("Объединение двух списков без дубликатов:");
             printListViaSeparator(listFirst, ", ");
             printListViaSeparator(listSecond, ", ");
-            printListViaSeparator(listResult, ", ");
-            System.out.println();
+            printListViaSeparator(listResult.stream().sorted().toList(), ", ");
+            System.out.println("Вариант с HashSet:");
+            listResult.clear();
+            HashSet<String> hashSet = new HashSet<>();
+            hashSet.addAll(listFirst);
+            hashSet.addAll(listSecond);
+            listResult.addAll(hashSet);
+            printListViaSeparator(listResult.stream().sorted().toList(), ", ");
         }
         {
             // 14) Сумма только нечётных чисел. Считайте List<Integer> и посчитайте сумму только нечётных чисел.
             List<Integer> intDigits = new ArrayList<>(List.of(7, 2, 7, 42, 6, -7));
-            Integer sumOdd = 0;
+            int sumOdd = 0;
             for (int num : intDigits) {
                 if (num % 2 != 0) {
                     sumOdd += num;
                 }
             }
-            System.out.
-
-                    printf("Сумма нечетных элементов списка %s равна: %s\n\n", intDigits, sumOdd);
+            System.out.printf("Сумма нечетных элементов списка %s равна: %s\n\n", intDigits, sumOdd);
         }
         {
             // 15) Фильтр по первой букве. Дан список строк. Верните новый список, содержащий только строки, начинающиеся с буквы "А"
